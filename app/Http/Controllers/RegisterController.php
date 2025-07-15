@@ -13,13 +13,7 @@ class RegisterController extends Controller
     public function register(RegisterRequest $request,  StudentRequest $studentRequest)
     {
 
-        $userRequest = app(RegisterRequest::class);
-        $studentRequest = app(StudentRequest::class);
-
-        $userRequest->setContainer(app())->validateResolved();
-        $studentRequest->setContainer(app())->validateResolved();
-
-        $userData = $userRequest->validated();
+        $userData = $request->validated();
         $studentData = $studentRequest->validated();
 
 
